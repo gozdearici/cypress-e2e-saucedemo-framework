@@ -1,4 +1,5 @@
-name: Cypress Tests
+name: Run Cypress tests
+run: npx cypress run --browser chrome
 
 on: [push]
 
@@ -14,4 +15,3 @@ jobs:
 
       - name: Run Cypress tests
         run: npx cypress run
-        
