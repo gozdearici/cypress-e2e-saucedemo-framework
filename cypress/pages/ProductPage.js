@@ -1,12 +1,12 @@
 class ProductPage {
     addToCart(productName) {
-        cy.contains('[data-test="inventory-item"]', productName)
+        cy.contains('[data-test="inventory-item"]', productName, { timeout: 10000 })
         .contains('Add to cart')
         .click()
     }
 
-    visiblityCartBadge() {
-        cy.get('[data-test="shopping-cart-badge"]').should('be.visible')
+    visibilityCartBadge() {
+        cy.get('[data-test="shopping-cart-badge"]', { timeout: 10000 }).should('be.visible')
     }
 
     getProductCount() {

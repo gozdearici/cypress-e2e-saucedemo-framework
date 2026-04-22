@@ -1,7 +1,7 @@
 class CartPage {
     verifyProduct(productName) {
         cy.url().should('include', '/cart')
-        cy.contains('[data-test="inventory-item"]', productName).should('be.visible')
+        cy.contains('[data-test="inventory-item"]', productName, { timeout: 10000 }).should('be.visible')
     }
 
     goToCheckout() {

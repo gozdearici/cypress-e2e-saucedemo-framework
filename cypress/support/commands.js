@@ -24,3 +24,17 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+import LoginPage from "../pages/LoginPage"
+
+Cypress.Commands.add('loginAsValidUser', () => {
+    cy.fixture('users').then(({ valid }) => {
+        LoginPage.login(valid.username, valid.password)
+    })
+})
+
+Cypress.Commands.add('stubExternalServices', () => {
+  cy.intercept('POST', 'https://events.backtrace.io/**', {
+    statusCode: 200,
+    body: {}
+  })
+})
